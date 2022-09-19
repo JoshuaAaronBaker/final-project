@@ -67,7 +67,7 @@ app.get('/callback', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.get('/refresh_token', (req, res, next) => {
+app.get('/refresh_token', (req, res) => {
   const { refresh_token } = req.query;
 
   axios({
@@ -85,7 +85,9 @@ app.get('/refresh_token', (req, res, next) => {
     .then(response => {
       res.send(response.data);
     })
-    .catch(err => next(err));
+    .catch(error => {
+      res.send(error);
+    });
 });
 
 app.use(errorMiddleware);
