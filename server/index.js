@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+
 require('dotenv/config');
 const express = require('express');
 const staticMiddleware = require('./static-middleware');
@@ -56,7 +56,7 @@ app.get('/callback', (req, res, next) => {
   })
     .then(response => {
       if (response.status === 200) {
-
+        /* eslint-disable camelcase */
         const { access_token, refresh_token, expires_in } = response.data;
 
         const queryParams = new URLSearchParams({ access_token, refresh_token, expires_in });

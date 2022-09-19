@@ -19,12 +19,12 @@ export default class Authorize extends React.Component {
     if (!accessToken || !refreshToken || !expiresIn) {
       return this.props.onAuthorized(null);
     }
-    if (window.localStorage.spotifyRefreshToken === 'undefined' || ((Date.now() - Number(window.localStorage.tokenTimestamp)) / 1000) < 1000) {
+    if (((Date.now() - Number(window.localStorage.tokenTimestamp)) / 1000) < 1000) {
       const data = axios.get(`/refresh_token?refresh_token=${window.localStorage.spotifyRefreshToken}`);
 
       window.localStorage.setItem(localStorageKeys.accessToken, data.access_token);
       window.localStorage.setItem(localStorageKeys.timestamp, Date.now());
-      window.location.reload();
+      this.props.onAuthorized({ accessToken });
     }
 
     window.localStorage.setItem(localStorageKeys.accessToken, accessToken);

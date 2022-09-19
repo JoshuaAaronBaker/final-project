@@ -3,7 +3,6 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Authorize from './src/Authorize';
 import parseRoute from './lib/parse-route';
-import '../server/public/login.css';
 
 export default class App extends React.Component {
   constructor(props) {
