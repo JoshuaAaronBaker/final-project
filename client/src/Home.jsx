@@ -10,7 +10,8 @@ export default class Home extends React.Component {
       userPlaylists: {},
       featuredPlaylists: {},
       recentlyPlayed: {},
-      profile: {}
+      profile: {},
+      artists: {}
     };
   }
 
@@ -37,6 +38,12 @@ export default class Home extends React.Component {
       .then(res => {
         const profile = res.data;
         this.setState({ profile });
+      });
+
+    axios.get('/me/following?type=artist')
+      .then(res => {
+        const artists = res.data;
+        this.setState({ artists });
       });
   }
 
@@ -88,20 +95,20 @@ export default class Home extends React.Component {
               </div>
             </div>)}
         </div>
-        {/* <div className="row">
-          <h3>Featured Playlists</h3>
+        <div className="row">
+          <h3>Your Followed Artists</h3>
         </div>
         <div className="row slider">
-          {this.state.featuredPlaylists.playlists.items.map(playlist =>
-            <div key={playlist.id} className='col-third margin10 align-center'>
+          {this.state.artists.artists.items.map(artist =>
+            <div key={artist.id} className='col-third margin10 align-center'>
               <div className='col-three-fourth'>
-                <img className='coverart' src={playlist.images[0].url} alt="" />
+                <img className='artists' src={artist.images[0].url} alt="" />
               </div>
               <div className='col-fourth text-align-center'>
-                <p>{playlist.name}</p>
+                <p>{artist.name}</p>
               </div>
             </div>)}
-        </div> */}
+        </div>
       </div>
     );
   }

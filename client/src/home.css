@@ -60,6 +60,17 @@
   text-align: center;
 }
 
+.artists {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+h2,
+h3 {
+  padding-left: 10px;
+}
+
 p {
   font-size: 12px;
   font-weight: 700;
