@@ -1,0 +1,70 @@
+.container {
+  margin: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+  background-color: #121212;
+  color: white;
+  font-family: sans-serif;
+}
+
+.overflow {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.background {
+  background-color: #121212;
+}
+
+.row {
+  display: flex;
+}
+
+.slider {
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.col-third {
+  flex-basis: calc(100%/3);
+}
+
+.col-fourth {
+  flex-basis: 25%;
+}
+
+.col-three-fourth {
+  flex-basis: 75%;
+}
+
+.margin10 {
+  margin: 0 10px;
+}
+
+.coverart {
+  height: 140px;
+  width: 140px;
+}
+
+.align-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 120px;
+}
