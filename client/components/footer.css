@@ -1,0 +1,12 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  background-color: black;
+  padding: 20px;
+}
+
+h1 {
+  color: white;
+}
