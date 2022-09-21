@@ -25,7 +25,21 @@
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 5px;
+  height: 0.3rem;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px #121212;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #353434;
+  border-radius: 5px;
+  width: 10px;
+  cursor: pointer;
 }
 
 .col-third {
@@ -64,6 +78,17 @@
   border-radius: 50%;
   height: 100px;
   width: 100px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 h2,

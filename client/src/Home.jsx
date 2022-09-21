@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Navbar from '../components/navbar';
 import './home.css';
 
 export default class Home extends React.Component {
@@ -53,6 +54,9 @@ export default class Home extends React.Component {
     }
     return (
       <div className="container overflow backgrond">
+        <div className="row position-relative">
+            <Navbar className='navbar'/>
+        </div>
         <div className="row">
           <h2>Good Afternoon</h2>
         </div>
