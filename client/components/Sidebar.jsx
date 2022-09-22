@@ -12,8 +12,8 @@ export default class Sidebar extends React.Component {
           <div className="row">
             <img className="sidebar-logo" src="/images/spotify-logo.jpeg" alt="" />
           </div>
-          <div className="row">
-            <a href="home" id='home'><FontAwesomeIcon className='icon' icon={faHome} /></a>
+          <div className="row sidebar-padding centerting">
+            <a href="#home" id='home'><FontAwesomeIcon className='icon icon-padding' icon={faHome} /><span>Home</span></a>
           </div>
         </div>
       </div>

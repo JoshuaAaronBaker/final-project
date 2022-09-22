@@ -18,6 +18,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
+
     axios.get('/me/playlists')
       .then(res => {
         const playlists = res.data;
@@ -50,6 +51,18 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const date = new Date();
+    const hours = date.getHours();
+    let greeting;
+
+    if (hours > 0 && hours < 12) {
+      greeting = 'Good morning';
+    } else if (hours > 12 && hours < 18) {
+      greeting = 'Good afternoon';
+    } else if (hours > 18 && hours < 23) {
+      greeting = 'Good evening';
+    }
+
     if (this.state.isLoading) {
       return null;
     } return (
@@ -61,7 +74,7 @@ export default class Home extends React.Component {
           </div>
           <div className="col-three-fourth">
             <div className="row margin-top-bot-3">
-              <h2>Good Afternoon</h2>
+              <h2>{greeting}</h2>
             </div>
             <div className="row wrap margin-top-bot-3">
               <div className="col-full flex-col padding">
@@ -148,67 +161,70 @@ export default class Home extends React.Component {
           </div>
         </div>
       </div>
-      <div className="container overflow backgrond">
-        <div className="row position-relative">
-            <Navbar/>
-        </div>
-        <div className="row">
-          <h2>Good Afternoon</h2>
-        </div>
-        <div className="row slider">
-          {this.state.recentlyPlayed.items.map(song =>
-            <div key={song.id} className='col-third margin10 align-center pointer'>
-              <div className='col-three-fourth'>
-                <img className='coverart' src={song.track.album.images[0].url} alt="" />
-              </div>
-              <div className='col-fourth text-align-center'>
-                <p className='song-name'>{song.track.name}</p>
-              </div>
-            </div>)}
-        </div>
-    <div className="row">
-      <h3>{`${this.state.profile.display_name}'s`} Playlists</h3>
-    </div>
-    <div className="row slider">
-        {this.state.userPlaylists.items.map(playlist =>
-          <div key={playlist.id} className='col-third margin10 align-center pointer'>
-            <div className='col-three-fourth'>
-              <img className='coverart' src={playlist.images[0].url} alt="" />
+        <div className='hide-mobile'>
+          <div className="container overflow backgrond hide-mobile">
+            <div className="row position-relative">
+              <Navbar />
             </div>
-            <div className='col-fourth text-align-center'>
-              <p className='pl-name'>{playlist.name}</p>
+            <div className="row">
+              <h2>{greeting}</h2>
             </div>
-          </div>)}
-    </div>
-    <div className="row">
-      <h3>Featured Playlists</h3>
-    </div>
-    <div className="row slider">
-      {this.state.featuredPlaylists.playlists.items.map(playlist =>
-        <div key={playlist.id} className='col-third margin10 align-center pointer'>
-          <div className='col-three-fourth'>
-            <img className='coverart' src={playlist.images[0].url} alt="" />
+            <div className="row slider">
+              {this.state.recentlyPlayed.items.map(song =>
+                <div key={song.id} className='col-third margin10 align-center pointer'>
+                  <div className='col-three-fourth'>
+                    <img className='coverart' src={song.track.album.images[0].url} alt="" />
+                  </div>
+                  <div className='col-fourth text-align-center'>
+                    <p className='song-name'>{song.track.name}</p>
+                  </div>
+                </div>)}
+            </div>
+            <div className="row">
+              <h3>{`${this.state.profile.display_name}'s`} Playlists</h3>
+            </div>
+            <div className="row slider">
+              {this.state.userPlaylists.items.map(playlist =>
+                <div key={playlist.id} className='col-third margin10 align-center pointer'>
+                  <div className='col-three-fourth'>
+                    <img className='coverart' src={playlist.images[0].url} alt="" />
+                  </div>
+                  <div className='col-fourth text-align-center'>
+                    <p className='pl-name'>{playlist.name}</p>
+                  </div>
+                </div>)}
+            </div>
+            <div className="row">
+              <h3>Featured Playlists</h3>
+            </div>
+            <div className="row slider">
+              {this.state.featuredPlaylists.playlists.items.map(playlist =>
+                <div key={playlist.id} className='col-third margin10 align-center pointer'>
+                  <div className='col-three-fourth'>
+                    <img className='coverart' src={playlist.images[0].url} alt="" />
+                  </div>
+                  <div className='col-fourth text-align-center'>
+                    <p className='pl-name'>{playlist.name}</p>
+                  </div>
+                </div>)}
+            </div>
+            <div className="row">
+              <h3>Your Followed Artists</h3>
+            </div>
+            <div className="row slider">
+              {this.state.artists.artists.items.map(artist =>
+                <div key={artist.id} className='col-third margin10 align-center'>
+                  <div className='col-three-fourth'>
+                    <img className='artists' src={artist.images[0].url} alt="" />
+                  </div>
+                  <div className='col-fourth text-align-center'>
+                    <p>{artist.name}</p>
+                  </div>
+                </div>)}
+            </div>
           </div>
-          <div className='col-fourth text-align-center'>
-            <p className='pl-name'>{playlist.name}</p>
-          </div>
-        </div>)}
-    </div>
-        <div className="row">
-          <h3>Your Followed Artists</h3>
-        </div>
-        <div className="row slider">
-          {this.state.artists.artists.items.map(artist =>
-            <div key={artist.id} className='col-third margin10 align-center'>
-              <div className='col-three-fourth'>
-                <img className='artists' src={artist.images[0].url} alt="" />
-              </div>
-              <div className='col-fourth text-align-center'>
-                <p>{artist.name}</p>
-              </div>
-            </div>)}
-        </div>
       </div>
+
     </>);
   }
 }

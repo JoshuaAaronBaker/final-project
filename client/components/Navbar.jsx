@@ -10,9 +10,9 @@ export default class Navbar extends React.Component {
         <div className='row navbar'>
         <nav className="flex-props">
             <div>
-              <a href="home" id='home'><FontAwesomeIcon className='icon' icon={faHome} /></a>
-              <div>
-                <a href="home">Home</a>
+              <a href="#home" id='home'><FontAwesomeIcon className='icon' icon={faHome} /></a>
+              <div className='nav-text-padding'>
+                <a href="#home">Home</a>
               </div>
             </div>
           </nav>

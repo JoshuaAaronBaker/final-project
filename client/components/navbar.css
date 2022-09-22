@@ -10,6 +10,7 @@
 
 .flex-props {
   justify-content: space-between;
+  text-align: center;
 }
 
 label {
@@ -28,4 +29,11 @@ a:visited {
   color: white;
   height: 24px;
   width: 24px;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-left: 1rem;
+}
+
+.nav-text-padding {
+  padding-left: 1rem;
 }
