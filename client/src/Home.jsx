@@ -19,35 +19,20 @@ export default class Home extends React.Component {
 
   componentDidMount() {
 
-    axios.get('/me/playlists')
-      .then(res => {
-        const playlists = res.data;
-        this.setState({ isLoading: false, userPlaylists: playlists });
-      });
-
-    axios.get('/browse/featured-playlists')
-      .then(res => {
-        const featuredPlaylists = res.data;
-        this.setState({ featuredPlaylists });
-      });
-
-    axios.get('/me/player/recently-played')
-      .then(res => {
-        const recentlyPlayed = res.data;
-        this.setState({ recentlyPlayed });
-      });
-
-    axios.get('/me')
-      .then(res => {
-        const profile = res.data;
-        this.setState({ profile });
-      });
-
-    axios.get('/me/following?type=artist')
-      .then(res => {
-        const artists = res.data;
-        this.setState({ artists });
-      });
+    Promise.all([
+      axios.get('/me/playlists')
+        .then(res => res.data),
+      axios.get('/browse/featured-playlists')
+        .then(res => res.data),
+      axios.get('/me/player/recently-played')
+        .then(res => res.data),
+      axios.get('/me')
+        .then(res => res.data),
+      axios.get('/me/following?type=artist')
+        .then(res => res.data)
+    ]).then(([userPlaylists, featuredPlaylists, recentlyPlayed, profile, artists]) => {
+      this.setState({ userPlaylists, featuredPlaylists, recentlyPlayed, profile, artists, isLoading: false });
+    });
   }
 
   render() {
@@ -228,8 +213,3 @@ export default class Home extends React.Component {
     </>);
   }
 }
-
-axios.defaults.baseURL = 'https://api.spotify.com/v1';
-// eslint-disable-next-line dot-notation
-axios.defaults.headers['Authorization'] = `Bearer ${window.localStorage.spotifyAccessToken}`;
-axios.defaults.headers['Content-Type'] = 'application/json';

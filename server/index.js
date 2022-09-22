@@ -3,7 +3,6 @@ require('dotenv/config');
 const express = require('express');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
-const querystring = require('query-string');
 const axios = require('axios');
 
 const app = express();
@@ -44,7 +43,7 @@ app.get('/callback', (req, res, next) => {
   axios({
     method: 'post',
     url: 'https://accounts.spotify.com/api/token',
-    data: querystring.stringify({
+    data: new URLSearchParams({
       grant_type: 'authorization_code',
       code,
       redirect_uri: REDIRECT_URI
@@ -73,7 +72,7 @@ app.get('/refresh_token', (req, res) => {
   axios({
     method: 'post',
     url: 'https://accounts.spotify.com/api/token',
-    data: querystring.stringify({
+    data: new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token
     }),
