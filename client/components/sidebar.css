@@ -1,0 +1,28 @@
+.sidebar {
+  border: 1px solid black;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+}
+
+.sidebar-padding {
+  padding: 1rem;
+}
+
+.icon-padding {
+  padding-left: 0.5rem;
+  padding-right: 0.8rem;
+}
+
+.centering {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.sidebar-logo {
+  max-width: 10rem;
+}
