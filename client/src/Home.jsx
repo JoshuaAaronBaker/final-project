@@ -42,9 +42,9 @@ export default class Home extends React.Component {
 
     if (hours > 0 && hours < 12) {
       greeting = 'Good morning';
-    } else if (hours > 12 && hours < 18) {
+    } else if (hours >= 12 && hours < 18) {
       greeting = 'Good afternoon';
-    } else if (hours > 18 && hours < 23) {
+    } else if (hours >= 18 && hours < 23) {
       greeting = 'Good evening';
     }
 
@@ -59,7 +59,7 @@ export default class Home extends React.Component {
           </div>
           <div className="col-three-fourth">
             <div className="row margin-top-bot-3">
-              <h2>{greeting}</h2>
+                <h2>{`${greeting} ${this.state.profile.display_name.split(' ')[0]}`}</h2>
             </div>
             <div className="row wrap margin-top-bot-3">
               <div className="col-full flex-col padding">
@@ -152,7 +152,7 @@ export default class Home extends React.Component {
               <Navbar />
             </div>
             <div className="row">
-              <h2>{greeting}</h2>
+              <h2>{`${greeting} ${this.state.profile.display_name.split(' ')[0]}`}</h2>
             </div>
             <div className="row slider">
               {this.state.recentlyPlayed.items.map(song =>
