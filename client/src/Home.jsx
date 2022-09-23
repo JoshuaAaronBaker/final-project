@@ -51,6 +51,7 @@ export default class Home extends React.Component {
     if (this.state.isLoading) {
       return null;
     } return (
+
     <>
       <div className="container gradient hidden">
         <div className="row">
@@ -64,20 +65,20 @@ export default class Home extends React.Component {
             <div className="row wrap margin-top-bot-3">
               <div className="col-full flex-col padding">
                 <div className="col-third">
-                  {this.state.recentlyPlayed.items.slice(0, 2).map(song => <div key={song.id} className='row card'>
-                      <div className="col-full flex-col">
+                  {this.state.recentlyPlayed.items.slice(0, 2).map((song, index) => <div key={song.track.id} className='row card'>
+                       <a href={`#playlist?playlistId=${song.track.id}`}><div className="col-full flex-col">
                         <div className="col-fourth">
-                        <img className='coverartb' src={song.track.album.images[0].url} alt="" />
+                       <img className='coverartb' src={song.track.album.images[0].url} alt="" />
                         </div>
                         <div className="col-three-fourth">
                         <p>{song.track.name}</p>
                         </div>
                       </div>
-                  </div>)}
+                  </a></div>)}
                 </div>
                 <div className="col-third">
-                  {this.state.recentlyPlayed.items.slice(3, 5).map(song => <div key={song.id} className='row card'>
-                    <div className="col-full flex-col">
+                    {this.state.recentlyPlayed.items.slice(3, 5).map((song, index) => <div key={song.track.id} className='row card'>
+                    <a href={`#playlist?playlistId=${song.track.id}`}><div className="col-full flex-col">
                       <div className="col-fourth">
                         <img className='coverartb' src={song.track.album.images[0].url} alt="" />
                       </div>
@@ -85,11 +86,11 @@ export default class Home extends React.Component {
                         <p>{song.track.name}</p>
                       </div>
                     </div>
-                  </div>)}
+                    </a></div>)}
                 </div>
                 <div className="col-third">
-                  {this.state.recentlyPlayed.items.slice(6, 8).map(song => <div key={song.id} className='row card'>
-                    <div className="col-full flex-col">
+                    {this.state.recentlyPlayed.items.slice(6, 8).map((song, index) => <div key={song.track.id} className='row card'>
+                      <a href={`#playlist?playlistId=${song.track.id}`}><div className="col-full flex-col">
                       <div className="col-fourth">
                         <img className='coverartb' src={song.track.album.images[0].url} alt="" />
                       </div>
@@ -97,7 +98,7 @@ export default class Home extends React.Component {
                         <p>{song.track.name}</p>
                       </div>
                     </div>
-                  </div>)}
+                      </a></div>)}
                 </div>
               </div>
             </div>
@@ -105,29 +106,29 @@ export default class Home extends React.Component {
               <h3>{`${this.state.profile.display_name}'s`} Playlists</h3>
             </div>
             <div className="row margin-top-bot-3">
-              {this.state.userPlaylists.items.slice(0, 5).map(playlist =>
-                <div key={playlist.id} className='col-third margin10 align-center pointer'>
+              {this.state.userPlaylists.items.slice(0, 5).map((playlist, index) =>
+                <a key={playlist.id} href={`#playlist?playlistId=${playlist.id}`}><div className='col-third margin10 align-center pointer'>
                   <div className='col-three-fourth'>
                     <img className='coverart' src={playlist.images[0].url} alt="" />
                   </div>
                   <div className='col-fourth text-align-center'>
                     <p className='pl-name'>{playlist.name}</p>
                   </div>
-                </div>)}
+                </div></a>)}
             </div>
             <div className="row margin-top-bot-3">
               <h3>Featured Playlists</h3>
             </div>
             <div className="row margin-top-bot-3">
               {this.state.featuredPlaylists.playlists.items.slice(0, 5).map(playlist =>
-                <div key={playlist.id} className='col-third margin10 align-center pointer'>
+                <a key={playlist.id} href={`#playlist?playlistId=${playlist.id}`}><div key={playlist.id} className='col-third margin10 align-center pointer'>
                   <div className='col-three-fourth'>
                     <img className='coverart' src={playlist.images[0].url} alt="" />
                   </div>
                   <div className='col-fourth text-align-center'>
                     <p className='pl-name'>{playlist.name}</p>
                   </div>
-                </div>)}
+                </div></a>)}
             </div>
             <div className="row margin-top-bot-3">
           <h3>Your Followed Artists</h3>
@@ -146,8 +147,9 @@ export default class Home extends React.Component {
           </div>
         </div>
       </div>
+
         <div className='hide-mobile'>
-          <div className="container overflow backgrond hide-mobile">
+          <div className="container overflow gradient hide-mobile">
             <div className="row position-relative">
               <Navbar />
             </div>
@@ -161,7 +163,7 @@ export default class Home extends React.Component {
                     <img className='coverart' src={song.track.album.images[0].url} alt="" />
                   </div>
                   <div className='col-fourth text-align-center'>
-                    <p className='song-name'>{song.track.name}</p>
+                    <p className='song-name-home'>{song.track.name}</p>
                   </div>
                 </div>)}
             </div>
@@ -169,29 +171,29 @@ export default class Home extends React.Component {
               <h3>{`${this.state.profile.display_name}'s`} Playlists</h3>
             </div>
             <div className="row slider">
-              {this.state.userPlaylists.items.map(playlist =>
-                <div key={playlist.id} className='col-third margin10 align-center pointer'>
+              {this.state.userPlaylists.items.map((playlist, index) =>
+                <a key={playlist.id} href={`#playlist?playlistId=${playlist.id}`}><div key={playlist.id} className='col-third margin10 align-center pointer'>
                   <div className='col-three-fourth'>
                     <img className='coverart' src={playlist.images[0].url} alt="" />
                   </div>
                   <div className='col-fourth text-align-center'>
                     <p className='pl-name'>{playlist.name}</p>
                   </div>
-                </div>)}
+                </div></a>)}
             </div>
             <div className="row">
               <h3>Featured Playlists</h3>
             </div>
             <div className="row slider">
-              {this.state.featuredPlaylists.playlists.items.map(playlist =>
-                <div key={playlist.id} className='col-third margin10 align-center pointer'>
+              {this.state.featuredPlaylists.playlists.items.map((playlist, index) =>
+                <a key={playlist.id} href={`#playlist?playlistId=${playlist.id}`}><div key={playlist.id} className='col-third margin10 align-center pointer'>
                   <div className='col-three-fourth'>
                     <img className='coverart' src={playlist.images[0].url} alt="" />
                   </div>
                   <div className='col-fourth text-align-center'>
                     <p className='pl-name'>{playlist.name}</p>
                   </div>
-                </div>)}
+                </div></a>)}
             </div>
             <div className="row">
               <h3>Your Followed Artists</h3>
