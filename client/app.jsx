@@ -3,6 +3,7 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Authorize from './src/Authorize';
 import Home from './src/Home';
+import Playlist from './pages/Playlist';
 import parseRoute from './lib/parse-route';
 import axios from 'axios';
 
@@ -25,10 +26,9 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('hashchange', () => {
-      this.setState({
-        route: parseRoute(window.location.hash)
-      });
+    window.addEventListener('hashchange', event => {
+      const newRoute = parseRoute(window.location.hash);
+      this.setState({ route: newRoute });
     });
     axios.defaults.baseURL = 'https://api.spotify.com/v1';
     // eslint-disable-next-line dot-notation
@@ -46,6 +46,10 @@ export default class App extends React.Component {
     }
     if (route.path === 'home') {
       return <Home credentials={this.state.credentials}/>;
+    }
+    if (route.path === 'playlist') {
+      const playlistId = route.params.get('playlistId');
+      return <Playlist credentials={this.state.credentials} playlistId={playlistId}/>;
     }
   }
 

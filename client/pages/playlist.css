@@ -1,0 +1,115 @@
+.p-margin {
+  margin: 0;
+}
+
+.col-full {
+  flex-basis: 100%;
+}
+
+.playlist-header-image {
+  max-width: 9.375rem;
+}
+
+.tracklist-padding {
+  padding: 0 1rem;
+}
+
+.tracklist-image {
+  max-width: 40px;
+}
+
+.vertical-padding {
+  padding: 1rem 0;
+}
+
+.artist-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+
+.song-name {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+}
+
+.vertical-aligin-center {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.pl-image-center {
+  padding-top: 2rem;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.padding-top-half {
+  padding-top: 0.8rem;
+}
+
+.number-spacing {
+  padding-right: 0.5rem;
+}
+
+.number-spacing-desktop {
+  padding-right: 16rem;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0 5rem;
+}
+
+.mobile-table {
+  padding: 0 0.5rem;
+}
+
+.title-padding {
+  margin-right: 0.5rem;
+}
+
+.des {
+  max-width: 100%;
+}
+
+.center {
+  justify-content: center;
+}
+
+.header-margin {
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.header-padding {
+  padding-top: 2rem;
+}
+
+.header-des-padding {
+  padding-left: 1rem;
+}
+
+.center-header-image {
+  justify-content: center;
+}
+
+@media screen and (min-width: 1285px) {
+  .playlist-header-image {
+    min-width: 200px;
+  }
+}
