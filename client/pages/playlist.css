@@ -61,7 +61,7 @@
 }
 
 .number-spacing-desktop {
-  padding-right: 16rem;
+  padding-right: 5%;
 }
 
 table {
@@ -73,6 +73,15 @@ th,
 td {
   text-align: left;
   padding: 0 5rem;
+}
+
+.song-name,
+.album-name {
+  max-width: 15rem;
+}
+
+.numbers {
+  padding: 0 0.5rem;
 }
 
 .mobile-table {

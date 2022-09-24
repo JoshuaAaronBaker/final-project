@@ -65,12 +65,6 @@ export default class Playlist extends React.Component {
                       <p className='artist-name p-margin'>{track.track.artists[0].name}</p>
                     </div>
                   </td>
-                  <td className='mobile-table'>
-                    <p>{track.track.album.name}</p>
-                  </td>
-                  <td className='mobile-table'>
-                    <p>{millisToMinutesAndSeconds(track.track.duration_ms)}</p>
-                  </td>
                 </tr>)}
           </table>
         </div>
@@ -82,8 +76,8 @@ export default class Playlist extends React.Component {
             <Sidebar />
           </div>
           <div className="col-three-fourth">
-            <div className="row wrap">
-              <div className="header-margin">
+              <div className="row wrap">
+                <div className="header-margin">
                     <img className='playlist-header-image' src={this.state.playlist.images[0].url} alt="" />
                     <div className='des'>
                       <h2>{this.state.playlist.name}</h2>
@@ -92,14 +86,14 @@ export default class Playlist extends React.Component {
                   </div>
                 <table>
                   <tr>
-                    <th>#</th>
+                    <th className='numbers'>#</th>
                     <th>TITLE</th>
                     <th>ALBUM</th>
                     <th>TIME</th>
                   </tr>
                   {this.state.playlistItems.items.map((track, index) =>
                     <tr key={track.id}>
-                    <td>
+                      <td className='numbers'>
                       {index + 1}
                     </td>
                     <td className='flex-col'>
@@ -110,7 +104,7 @@ export default class Playlist extends React.Component {
                         </div>
                     </td>
                     <td>
-                      <p>{track.track.album.name}</p>
+                      <p className='album-name'>{track.track.album.name}</p>
                     </td>
                     <td>
                         <p>{millisToMinutesAndSeconds(track.track.duration_ms)}</p>
