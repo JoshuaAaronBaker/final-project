@@ -27,7 +27,7 @@ const stateKey = 'spotify_auth_state';
 const scopes = ['user-modify-playback-state', 'user-read-recently-played',
   'user-read-playback-position', 'playlist-read-collaborative', 'app-remote-control', 'user-read-playback-state',
   'user-read-email', 'streaming', 'user-top-read', 'playlist-modify-public', 'user-library-modify',
-  'user-follow-read', 'user-read-currently-playing', 'user-library-read', 'playlist-read-private', 'playlist-modify-private'];
+  'user-follow-read', 'user-read-currently-playing', 'user-library-read', 'user-read-private', 'playlist-read-private', 'playlist-modify-private'];
 const scope = scopes.join('%20');
 
 app.get('/login', (req, res) => {

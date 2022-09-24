@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
+import Player from '../components/Player';
 import './playlist.css';
 
 const millisToMinutesAndSeconds = millis => {
@@ -16,8 +17,15 @@ export default class Playlist extends React.Component {
     this.state = {
       isLoading: true,
       playlist: {},
-      playlistItems: {}
+      playlistItems: {},
+      trackUri: []
     };
+    this.chooseTrack = this.chooseTrack.bind(this);
+  }
+
+  chooseTrack(event) {
+    const trackUri = [event.target.getAttribute('data')];
+    this.setState({ trackUri });
   }
 
   componentDidMount() {
@@ -37,6 +45,7 @@ export default class Playlist extends React.Component {
       <>
       <div className="container gradient hide-mobile">
         <div>
+            <Player accessToken={window.localStorage.spotifyAccessToken} trackUri={this.state.trackUri}/>
           <Navbar />
         </div>
           <div className="row wrap center-header-image header-padding">
@@ -54,11 +63,11 @@ export default class Playlist extends React.Component {
                 <th className='mobile-table'>TITLE</th>
             </tr>
               {this.state.playlistItems.items.map((track, index) =>
-                <tr key={track.id}>
+                <tr key={track.track.uri} onClick={this.chooseTrack}>
                   <td className='mobile-table'>
                     {index + 1}
                   </td>
-                  <td className='flex-col mobile-table'>
+                  <td data={track.track.uri} className='flex-col mobile-table'>
                     <img className='tracklist-image title-padding' src={this.state.playlistItems.items[index].track.album.images[0].url} alt="" />
                     <div>
                       <p className='song-name p-margin'>{track.track.name}</p>
@@ -92,11 +101,11 @@ export default class Playlist extends React.Component {
                     <th>TIME</th>
                   </tr>
                   {this.state.playlistItems.items.map((track, index) =>
-                    <tr key={track.id}>
+                    <tr key={track.track.uri} onClick={this.chooseTrack}>
                       <td className='numbers'>
                       {index + 1}
                     </td>
-                    <td className='flex-col'>
+                      <td className='flex-col' data={track.track.uri}>
                         <img className='tracklist-image title-padding' src={this.state.playlistItems.items[index].track.album.images[0].url} alt="" />
                         <div>
                           <p className='song-name p-margin'>{track.track.name}</p>
@@ -114,6 +123,7 @@ export default class Playlist extends React.Component {
               </div>
           </div>
         </div>
+          <Player accessToken={window.localStorage.spotifyAccessToken} trackUri={this.state.trackUri} />
       </div>
       </>
     );
