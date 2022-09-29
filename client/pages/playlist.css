@@ -64,6 +64,10 @@
   padding-right: 5%;
 }
 
+.click {
+  cursor: pointer;
+}
+
 table {
   border-collapse: separate;
   border-spacing: 0 15px;

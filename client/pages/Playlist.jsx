@@ -18,7 +18,8 @@ export default class Playlist extends React.Component {
       isLoading: true,
       playlist: {},
       playlistItems: {},
-      trackUri: []
+      trackUri: [],
+      playAll: []
     };
     this.chooseTrack = this.chooseTrack.bind(this);
   }
@@ -26,6 +27,9 @@ export default class Playlist extends React.Component {
   chooseTrack(event) {
     const trackUri = [event.target.getAttribute('data')];
     this.setState({ trackUri });
+  }
+
+  playAllTracks() {
   }
 
   componentDidMount() {
@@ -38,6 +42,7 @@ export default class Playlist extends React.Component {
   }
 
   render() {
+    const allTracks = [];
     if (this.state.isLoading) {
       return null;
     }
@@ -64,6 +69,7 @@ export default class Playlist extends React.Component {
             </tr>
               {this.state.playlistItems.items.map((track, index) =>
                 <tr key={track.track.uri} onClick={this.chooseTrack}>
+                  {allTracks.push(track.track.uri)}
                   <td className='mobile-table'>
                     {index + 1}
                   </td>
@@ -101,7 +107,7 @@ export default class Playlist extends React.Component {
                     <th>TIME</th>
                   </tr>
                   {this.state.playlistItems.items.map((track, index) =>
-                    <tr key={track.track.uri} onClick={this.chooseTrack}>
+                    <tr className='click' key={track.track.uri} onClick={this.chooseTrack}>
                       <td className='numbers'>
                       {index + 1}
                     </td>

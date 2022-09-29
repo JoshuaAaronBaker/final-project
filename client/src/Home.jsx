@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-import Player from '../components/Player';
 import './home.css';
 
 export default class Home extends React.Component {
@@ -41,7 +40,7 @@ export default class Home extends React.Component {
     const hours = date.getHours();
     let greeting;
 
-    if (hours > 0 && hours < 12) {
+    if (hours >= 0 && hours < 12) {
       greeting = 'Good morning';
     } else if (hours >= 12 && hours < 18) {
       greeting = 'Good afternoon';
@@ -147,7 +146,6 @@ export default class Home extends React.Component {
         </div>
           </div>
         </div>
-          <Player accessToken={window.localStorage.spotifyAccessToken} trackUri={this.state.trackUri} />
       </div>
 
         <div className='hide-mobile'>
