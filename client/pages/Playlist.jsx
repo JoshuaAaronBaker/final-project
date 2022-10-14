@@ -42,13 +42,16 @@ export default class Playlist extends React.Component {
   }
 
   render() {
-    const allTracks = [];
     if (this.state.isLoading) {
-      return null;
+      return (
+        <div className='loading-background loading-center'>
+          <div className="lds-ripple"><div></div><div></div></div>
+        </div>
+      );
     }
     return (
       <>
-      <div className="container gradient hide-mobile">
+      <div className="container gradient hide-mobile overflow">
         <div>
             <Player accessToken={window.localStorage.spotifyAccessToken} trackUri={this.state.trackUri}/>
           <Navbar />
@@ -58,22 +61,18 @@ export default class Playlist extends React.Component {
             <div className='header-des-padding'><h2>{this.state.playlist.name}</h2>
               <h4>{this.state.playlist.description}</h4></div>
         </div>
-        <div className="row">
-          <table>
-              <th className='mobile-table'></th>
-              <th className='mobile-table'></th>
-              <th className='mobile-table'></th>
-            <tr>
-                <th className='mobile-table'>#</th>
-                <th className='mobile-table'>TITLE</th>
-            </tr>
+        <div className="row table-padding">
+            <table>
+              <tr>
+                <th className='numbers'>#</th>
+                <th>TITLE</th>
+              </tr>
               {this.state.playlistItems.items.map((track, index) =>
-                <tr key={track.track.uri} onClick={this.chooseTrack}>
-                  {allTracks.push(track.track.uri)}
-                  <td className='mobile-table'>
+                <tr className='click' key={track.track.uri} onClick={this.chooseTrack}>
+                  <td className='numbers'>
                     {index + 1}
                   </td>
-                  <td data={track.track.uri} className='flex-col mobile-table'>
+                  <td className='flex-col' data={track.track.uri}>
                     <img className='tracklist-image title-padding' src={this.state.playlistItems.items[index].track.album.images[0].url} alt="" />
                     <div>
                       <p className='song-name p-margin'>{track.track.name}</p>
@@ -81,7 +80,7 @@ export default class Playlist extends React.Component {
                     </div>
                   </td>
                 </tr>)}
-          </table>
+            </table>
         </div>
       </div>
 

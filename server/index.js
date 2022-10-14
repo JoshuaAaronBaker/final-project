@@ -61,6 +61,8 @@ app.get('/callback', (req, res, next) => {
         const queryParams = new URLSearchParams({ access_token, refresh_token, expires_in });
 
         res.redirect(`/#auth?${queryParams}`);
+      } else {
+        window.alert('A connection error occured, please try again');
       }
     })
     .catch(err => next(err));
