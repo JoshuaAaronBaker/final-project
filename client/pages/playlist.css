@@ -76,7 +76,11 @@ table {
 th,
 td {
   text-align: left;
-  padding: 0 5rem;
+  padding: 0 1rem;
+}
+
+.table-padding {
+  padding-left: 3rem;
 }
 
 .song-name,
@@ -124,5 +128,11 @@ td {
 @media screen and (min-width: 1285px) {
   .playlist-header-image {
     min-width: 200px;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0 5rem;
   }
 }

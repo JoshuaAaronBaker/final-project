@@ -49,7 +49,11 @@ export default class Home extends React.Component {
     }
 
     if (this.state.isLoading) {
-      return null;
+      return (
+        <div className='loading-background loading-center'>
+          <div className="lds-ripple"><div></div><div></div></div>
+        </div>
+      );
     } return (
 
     <>
@@ -147,12 +151,8 @@ export default class Home extends React.Component {
           </div>
         </div>
       </div>
-
-        <div className='hide-mobile'>
-          <div className="container overflow gradient hide-mobile">
-            <div className="row position-relative">
-              <Navbar />
-            </div>
+        <div className='hide-mobile container gradient overflow'>
+          <div>
             <div className="row">
               <h2>{`${greeting}, ${this.state.profile.display_name.split(' ')[0]}`}</h2>
             </div>
@@ -208,6 +208,9 @@ export default class Home extends React.Component {
                     <p>{artist.name}</p>
                   </div>
                 </div>)}
+            </div>
+            <div className="row position-relative">
+              <Navbar />
             </div>
           </div>
       </div>

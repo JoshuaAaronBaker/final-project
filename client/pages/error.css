@@ -1,0 +1,17 @@
+.error-page {
+  font-family: sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.return-btn {
+  padding: 20px 50px;
+  background-color: #1ed760;
+  border-radius: 99px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
