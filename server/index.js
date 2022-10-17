@@ -62,7 +62,7 @@ app.get('/callback', (req, res, next) => {
 
         res.redirect(`/#auth?${queryParams}`);
       } else {
-        window.alert('A connection error occured, please try again');
+        res.redirect('/#error');
       }
     })
     .catch(err => next(err));

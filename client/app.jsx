@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Authorize from './src/Authorize';
 import Home from './src/Home';
 import Playlist from './pages/Playlist';
+import Error from './pages/Error';
 import parseRoute from './lib/parse-route';
 import axios from 'axios';
 
@@ -50,6 +51,9 @@ export default class App extends React.Component {
     if (route.path === 'playlist') {
       const playlistId = route.params.get('playlistId');
       return <Playlist credentials={this.state.credentials} playlistId={playlistId}/>;
+    }
+    if (route.path === 'error') {
+      return <Error />;
     }
   }
 
