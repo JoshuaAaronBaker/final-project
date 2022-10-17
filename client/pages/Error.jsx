@@ -2,11 +2,14 @@ import React from 'react';
 
 export default class Error extends React.Component {
 
+  componentDidMount() {
+    window.alert('A connect error has occurred. Please try again.');
+  }
+
   render() {
     return (
   <>
-  {window.alert('A connection error has occurred. Please try again.')}
-      <div className='error-page'>
+    <div className='error-page'>
         <div>
           <img src="/images/spotify-logo.jpeg" alt="" className="logo" />
         </div>
