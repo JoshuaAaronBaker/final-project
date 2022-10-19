@@ -67,15 +67,21 @@ Once registered you can try the application live at [https://spotify-by-me.joshu
    cd spotify-by-me
    ```
 
-4. In .env.example, plug in all the corresponding values for each environment variable.
+4. Install all dependencies with NPM.
 
-5. Make a copy of the provided .env.example file and name your copy .env.
+    ```shell
+    npm install
+    ```
+
+5. In .env.example, plug in all the corresponding values for each environment variable.
+
+6. Make a copy of the provided .env.example file and name your copy .env.
 
     ```shell
     cp .env.example .env
     ```
 
-6. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
+7. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
 
     ```shell
     npm run dev
