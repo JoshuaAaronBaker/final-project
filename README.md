@@ -1,6 +1,6 @@
 # Spotify-By-Me
 
-A React application made for users who want to have a differnt experience with Spotify.
+A React application made for users who want to have a different experience with Spotify.
 
 ## Why I Built This
 
