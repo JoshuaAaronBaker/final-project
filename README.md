@@ -36,7 +36,9 @@ Once registered you can try the application live at [https://spotify-by-me.joshu
 
 ## Preview
 
-![Player](assets/player-demo.mp4)
+https://user-images.githubusercontent.com/91937935/197603996-00c13fde-4252-4c0f-bb03-084e2ea9be6c.mp4
+
+
 
 ## Features in Development
 
