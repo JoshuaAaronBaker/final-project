@@ -3,6 +3,7 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Authorize from './src/Authorize';
 import Home from './src/Home';
+import Search from './pages/Search';
 import Playlist from './pages/Playlist';
 import Error from './pages/Error';
 import parseRoute from './lib/parse-route';
@@ -47,6 +48,9 @@ export default class App extends React.Component {
     }
     if (route.path === 'home') {
       return <Home credentials={this.state.credentials}/>;
+    }
+    if (route.path === 'search') {
+      return <Search credentials={this.state.credentials}/>;
     }
     if (route.path === 'playlist') {
       const playlistId = route.params.get('playlistId');
