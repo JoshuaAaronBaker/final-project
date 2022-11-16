@@ -15,6 +15,12 @@ export default class Navbar extends React.Component {
                 <a href="#home">Home</a>
               </div>
             </div>
+          <div>
+            <a href="#home" id='home'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></a>
+            <div className='nav-text-padding'>
+              <a href="#search">Search</a>
+            </div>
+          </div>
           </nav>
         </div>
     );
