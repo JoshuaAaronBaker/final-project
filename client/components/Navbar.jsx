@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
 
 export default class Navbar extends React.Component {
@@ -16,7 +16,7 @@ export default class Navbar extends React.Component {
               </div>
             </div>
           <div>
-            <a href="#home" id='home'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></a>
+            <a href="#home" id='home'><FontAwesomeIcon className='icon' icon={faMagnifyingGlass} /></a>
             <div className='nav-text-padding'>
               <a href="#search">Search</a>
             </div>
